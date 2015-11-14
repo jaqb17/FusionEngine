@@ -13,7 +13,7 @@ public class MainGameLoop {
 	public static void main(String[] args) {
 		
 		DisplayManager.createDisplay();
-		System.out.println(GL11.glGetString(GL11.GL_VERSION));
+	
 		Loader loader = new Loader();
 		Renderer renderer = new Renderer();
 		
@@ -21,18 +21,19 @@ public class MainGameLoop {
 				-0.5f, 0.5f, 0f,
 				-0.5f, -0.5f, 0f,
 				0.5f, -0.5f, 0f,
-				
-				0.5f, -0.5f, 0f,
-				0.5f, 0.5f, 0f,
-				-0.5f, 0.5f, 0f
+				0.5f, 0.5f, 0f
 		};
 		
-	RawModel model = loader.loadToVAO(vertices);
+		int[] indices={0,1,3,
+						3,1,2};
+		
+	RawModel model = loader.loadToVAO(vertices,indices);
 	 	
 		
 		while(!Display.isCloseRequested())
 		{
 			renderer.prepare();
+			renderer.render(model);
 			//logika
 			//renderer.render(model);
 			DisplayManager.updateDisplay();
