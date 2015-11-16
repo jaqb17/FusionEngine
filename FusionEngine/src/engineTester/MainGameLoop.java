@@ -17,6 +17,7 @@ public class MainGameLoop {
 
 		DisplayManager.createDisplay();
 
+		
 		Loader loader = new Loader();
 		Renderer renderer = new Renderer();
 		StaticShader shader = new StaticShader();
@@ -28,8 +29,8 @@ public class MainGameLoop {
 		float[] textureCoords=
 		{
 			0,0,
-			0,1,
-			1,1,
+			0,1f,
+			1,1f,
 			1,0
 		};
 		
@@ -45,6 +46,7 @@ public class MainGameLoop {
 			// logika
 			// renderer.render(model);
 			DisplayManager.updateDisplay();
+			
 		}
 		shader.cleanUp();
 		loader.cleanUp();

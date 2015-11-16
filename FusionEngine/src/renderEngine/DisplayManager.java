@@ -16,8 +16,9 @@ public class DisplayManager {
 	public static void createDisplay() 
 	{
 		
-		ContextAttribs attribs = new ContextAttribs(3,2).withProfileCore(true); //wazne milion na osx
-		attribs.withForwardCompatible(true);
+		ContextAttribs attribs = new ContextAttribs(3,2)
+		.withProfileCore(true)
+		.withForwardCompatible(true);
 		
 		
 		
