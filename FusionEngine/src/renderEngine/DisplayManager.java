@@ -25,7 +25,7 @@ public class DisplayManager {
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 			Display.create(new PixelFormat(), attribs);
-			Display.setTitle("FusionEngine");
+			Display.setTitle("Silnik kurwa miljon!!!!!!1");
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
