@@ -36,14 +36,14 @@ public class MainGameLoop {
 	texture1.setShineDamper(275);
 	texture1.setReflectivity(100);
 	
-	TexturedModel staticModel2 = new TexturedModel(model, new ModelTexture(loader.loadTexture("dragonTextureb")));
-	ModelTexture texture2 = staticModel2.getTexture();
-	texture2.setShineDamper(3);
-	texture2.setReflectivity(10);
+	//TexturedModel staticModel2 = new TexturedModel(model, new ModelTexture(loader.loadTexture("dragonTextureb")));
+	//ModelTexture texture2 = staticModel2.getTexture();
+	//texture2.setShineDamper(3);
+	//texture2.setReflectivity(10);
 	
 	Entity entity = new Entity(staticModel1, new Vector3f(4f, 0, -10f), 0, 0, 0, 0.5f);
 	Light light = new Light(new Vector3f (0,0,0f),new Vector3f(1f,1f,1f));
-	Entity entity2 = new Entity(staticModel2, new Vector3f(-4f, 0, -10f), 0, 0, 0, 0.5f);
+	//Entity entity2 = new Entity(staticModel2, new Vector3f(-4f, 0, -10f), 0, 0, 0, 0.5f);
 	
 	
 
@@ -51,7 +51,7 @@ public class MainGameLoop {
 
 	while (!Display.isCloseRequested()) {
 	    entity.increaseRotation(0, 1, 0);
-	    entity2.increaseRotation(0, -1, 0);
+	  //  entity2.increaseRotation(0, -1, 0);
 	   // entity.increasePosition(0, 0,-0.002f );
 	    camera.move();
 	    renderer.prepare();
@@ -59,7 +59,7 @@ public class MainGameLoop {
 	    shader.loadLight(light);
 	    shader.loadViewMatrix(camera);
 	    renderer.render(entity, shader);
-	    renderer.render(entity2, shader);
+	   // renderer.render(entity2, shader);
 	   
 	    shader.stop();
 	    // logika
