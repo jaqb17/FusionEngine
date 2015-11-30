@@ -39,7 +39,7 @@ public class MainGameLoop {
 	TexturedModel staticModel2 = new TexturedModel(model, new ModelTexture(loader.loadTexture("dragonTextureb")));
 	ModelTexture texture2 = staticModel2.getTexture();
 	texture2.setShineDamper(3);
-	texture2.setReflectivity(100);
+	texture2.setReflectivity(10);
 	
 	Entity entity = new Entity(staticModel1, new Vector3f(4f, 0, -10f), 0, 0, 0, 0.5f);
 	Light light = new Light(new Vector3f (0,0,0f),new Vector3f(1f,1f,1f));
