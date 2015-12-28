@@ -25,7 +25,7 @@ public class DisplayManager {
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 			Display.create(new PixelFormat(), attribs);
-			Display.setTitle("mkultra engine");
+			Display.setTitle("FusionEngine");
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}

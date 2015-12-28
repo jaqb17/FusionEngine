@@ -1,6 +1,7 @@
 package Entities;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.util.vector.Vector3f;
 
 public class Camera {
@@ -16,20 +17,46 @@ public class Camera {
 	{
 		if(Keyboard.isKeyDown(Keyboard.KEY_S))
 		{
-			position.y-=0.02f;
+			position.y-=0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_W))
 		{
-			position.y+=0.02f;
+			position.y+=0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A))
 		{
-			position.x-=0.02f;
+			position.x-=0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_D))
 		{
-			position.x+=0.02f;
+			position.x+=0.1f;
 		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_Q))
+		{
+			pitch+=0.3f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_E))
+		{
+			pitch-=0.3f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_Z))
+		{
+			yaw+=0.1f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_C))
+		{
+			yaw-=0.1f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_F))
+		{
+			position.z-=0.05f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_G))
+		{
+			position.z+=0.05f;
+		}
+		
+
 	}
 
 	public Vector3f getPosition() {
