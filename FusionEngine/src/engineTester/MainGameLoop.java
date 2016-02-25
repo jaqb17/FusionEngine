@@ -9,6 +9,7 @@ import Entities.Entity;
 import Entities.Light;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
+import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
 import models.RawModel;
 import models.TexturedModel;
@@ -24,39 +25,36 @@ public class MainGameLoop {
 
 		Loader loader = new Loader();
 
-		StaticShader shader = new StaticShader();
-		Renderer renderer = new Renderer(shader);
+		
 
-		RawModel model = OBJLoader.loadObjModel("dragon", loader);
+		RawModel model = OBJLoader.loadObjModel("stall", loader);
 
-		TexturedModel staticModel1 = new TexturedModel(model, new ModelTexture(loader.loadTexture("dragonTexture")));
+		TexturedModel staticModel1 = new TexturedModel(model, new ModelTexture(loader.loadTexture("stallTexture")));
 		ModelTexture texture1 = staticModel1.getTexture();
 
-		texture1.setShineDamper(150);
-		texture1.setReflectivity(75);
+		texture1.setShineDamper(1000);
+		texture1.setReflectivity(1);
 
 		Entity entity = new Entity(staticModel1, new Vector3f(0f, -2f, -10f), 0, 180.0f, 0, 0.5f);
-		Light light = new Light(new Vector3f(0, 5f, -11f), new Vector3f(1f, 1f, 1f));
+		Light light = new Light(new Vector3f(0, 5f, 0f), new Vector3f(1f, 1f, 1f));
 
 		Camera camera = new Camera();
 
+		MasterRenderer renderer = new MasterRenderer();
+		
 		while (!Display.isCloseRequested()) {
 
 			camera.move();
-
-			renderer.prepare();
-			shader.start();
-			shader.loadLight(light);
-			shader.loadViewMatrix(camera);
-			renderer.render(entity, shader);
-
-			shader.stop();
-			// logika
-			// renderer.render(model);
+			
+			renderer.processEntity(entity);
+			
+		
+			
+			 renderer.render(light,camera);
 			DisplayManager.updateDisplay();
 
 		}
-		shader.cleanUp();
+		renderer.cleanUp();
 		loader.cleanUp();
 		DisplayManager.closeDisplay();
 

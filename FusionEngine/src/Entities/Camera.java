@@ -41,11 +41,11 @@ public class Camera {
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_Z))
 		{
-			yaw+=0.1f;
+			yaw+=1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_C))
 		{
-			yaw-=0.1f;
+			yaw-=1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_F))
 		{
